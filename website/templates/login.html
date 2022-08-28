@@ -1,0 +1,40 @@
+{% extends "raiz.html" %}
+
+{% block titulo %} CONECTARSE {% endblock %} 
+
+
+{% block contenido %} 
+
+<form method="POST">
+ <h3 aling="center"> login </h3> <!-- AL PARECER AL CORRER EL SERVIDOR NO FUNCIONA LA ALINEACION, NO HE PODIDO AVERIGUAR POR QUE -->
+
+
+        <div class="form_group">
+
+            <label for="email"> correo </label>
+            <input type="text" 
+                id="email" 
+                name="email" 
+                class="form_control" 
+                placeholder="Enter Email"
+                />
+
+
+                <label for="password"> contraseña </label>
+                <input type="password" 
+                id="password" 
+             name="password" 
+                class="form_control" 
+                placeholder="Enter password"
+             />
+            <br/>
+            <div aling="center">
+
+                <button class="btm btm-primary" type="submit"> ingresar </button> <!-- NUEVAMENTE NO FUNCIONAN LAS CENTRALIZACIONES DE LINEA, SI ALGUEIN SABE POR QUE AGRADECEDRIA ME LO DIJERAN -->
+            </div>
+            
+        </div>
+
+</form> 
+
+{% endblock %}
