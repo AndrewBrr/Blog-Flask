@@ -2,7 +2,7 @@ from enum import unique
 from time import timezone
 from . import db  ##el punto señala el paquete en el que nos encontramos ahora mismo, es decir, en website
 from flask_login import UserMixin
-from sql_alchemy.sql import func
+from sqlalchemy.sql import func
 
 
 class User(db.Model, UserMixin):
@@ -11,4 +11,4 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(150), unique = True) 
     username = db.Column(db.String(150), unique = True)
     password = db.Column(db.String(150))
-    date_creation = db.Column(db.Date(timezone=True), default=func.now())  
+    date_creation = db.Column(db.DateTime(timezone=True), default=func.now())  

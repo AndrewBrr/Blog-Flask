@@ -31,6 +31,26 @@
             </div>    
         </div>
     </nav>
+
+    {% with messages = get_flashed_messages(with_categories=True) %} 
+
+    {% if messages %}
+        {% for category, message in messages %}
+        {% if category == "error" %}
+        <div class="alert alert-danger alter-dismissible fade show" rol="alert">
+            {{message}}
+            <buttom type="button" class="btn-close" data-bs-dismiss="alert"></buttom>
+        </div>
+        {% else %}
+        <div class="alert alert-success alter-dismissible fade show" rol="alert">
+            {{message}}
+            <buttom type="button" class="btn-close" data-bs-dismiss="alert"></buttom>
+        </div>
+        {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    {% endwith %}
  
     <!-- JavaScript Bundle with Popper -->
 
