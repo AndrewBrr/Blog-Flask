@@ -14,17 +14,17 @@ DB_NAME = "database.db"
 def crear_app():
     app = Flask(__name__) ## Esto es lo primero y principal que hacer al crear una app en Flask, app es el nombre de la aplicacion  mientras que name referencia al modulo con el cual se va a correr la aplicacion
     app.config['SECRET_KEY'] = "holaatodos"
-    app.config['SQL_Alchemy_DATABASE_URI'] = f'sqlite:///{DB_NAME}' ##esto es para decirle a flask donde se encuentra ubicada la base de datos
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}' ##esto es para decirle a flask donde se encuentra ubicada la base de datos
     db.init_app(app) 
 
     from .views import views
     from .auth import auth 
-
+ 
     
-    app.register_blueprint(views, url_prefix="/")
+    app.register_blueprint(views, url_prefix="/") 
     app.register_blueprint(auth, url_prefix="/")
 
-    from .models import User
+    from .models import User, Post
 
 
     create_database(app)
